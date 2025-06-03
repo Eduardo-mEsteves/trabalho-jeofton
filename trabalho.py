@@ -67,6 +67,12 @@ def gerar_grafico_geral():
     plt.tight_layout()
     plt.show()
 
+def salvar_dados():
+    alunos_df.to_csv("dados_alunos.csv", index=False)
+    print("Dados salvos em 'dados_alunos.csv'.")
+
+    
+
 while True:
     print("1-Adicionar novo aluno")
     print("2-Ver ranking por materia")
@@ -79,15 +85,15 @@ while True:
     if opcao == '1':
         adicionar_aluno()
     elif opcao == '2':
-        
+        mostrar_por_materia()
     elif opcao == '3':
-        
+        mostrar_geral()
     elif opcao == '4':
-        
+        gerar_grafico_materias()
     elif opcao == '5':
-        
+        gerar_grafico_geral()
     elif opcao == '6':
-        
+        salvar_dados()
     elif opcao == '7':
         print("Saindo...")
         break
