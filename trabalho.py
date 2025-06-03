@@ -25,29 +25,40 @@ def adicionar_aluno():
     global alunos_df
     alunos_df = pd.concat([alunos_df, novo], ignore_index=True)
     print(f'Aluno "{nome}" adicionado.') 
-    while True:
-        print("1-Adicionar novo aluno")
-        print("2-Ver ranking por materia")
-        print("3-Ver ranking geral")
-        print("4-Gerar gráfico por matéria")
-        print("5-Gerar gráfico de média geral")
-        print("6-Salvar dados")
-        print("7-Sair")
-        opcao = input("Escolha uma opção: ")
-        if opcao == '1':
-            adicionar_aluno()
-        elif opcao == '2':
-            
-        elif opcao == '3':
-            
-        elif opcao == '4':
-            
-        elif opcao == '5':
-            
-        elif opcao == '6':
-            
-        elif opcao == '7':
-            print("Saindo...")
-            break
-        else:
-            print("Opção inválida. Tente novamente.")
+
+def mostrar_por_materia():
+    materia = input("Digite a matéria (Matematica, Portugues, Historia ou Quimica): ").capitalize()
+    if materia not in alunos_df.columns:
+        print("Matéria não disponível.")
+        return
+    ranking = alunos_df.sort_values(by=materia, ascending=False)
+    print(f"\nRanking - {materia}")
+    print(ranking[['Aluno', materia]])
+
+
+while True:
+    print("1-Adicionar novo aluno")
+    print("2-Ver ranking por materia")
+    print("3-Ver ranking geral")
+    print("4-Gerar gráfico por matéria")
+    print("5-Gerar gráfico de média geral")
+    print("6-Salvar dados")
+    print("7-Sair")
+    opcao = input("Escolha uma opção: ")
+    if opcao == '1':
+        adicionar_aluno()
+    elif opcao == '2':
+        
+    elif opcao == '3':
+        
+    elif opcao == '4':
+        
+    elif opcao == '5':
+        
+    elif opcao == '6':
+        
+    elif opcao == '7':
+        print("Saindo...")
+        break
+    else:
+        print("Opção inválida. Tente novamente.")
