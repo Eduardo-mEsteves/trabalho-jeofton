@@ -35,16 +35,9 @@ def mostrar_por_materia():
     print(f"\nRanking - {materia}")
     print(ranking[['Aluno', materia]])
 
-def mostrar_geral():
-    df = alunos_df.copy()
-    df['Média Geral'] = df[['Matemática', 'Português', 'Historia', 'Química']].mean(axis=1)
-    ranking= df.sort_values(by='Média Geral', ascending=False)
-    print("\nRanking - Média Geral")
-    print(ranking[['Aluno', 'Média Geral']])
-
 def gerar_grafico_materias():
-    df=alunos_df.set_index('Aluno')
-    df[['Matematica', 'Portugues', 'Historia' e 'Quimica']].plot(kind='bar', figsize=(12, 6))
+    df = alunos_df.set_index('Aluno')
+    df[['Matematica', 'Portugues', 'Historia', 'Quimica']].plot(kind='bar', figsize=(12, 6))
     plt.title("Média por Matéria - Alunos")
     plt.xlabel("Aluno")
     plt.ylabel("Média")
@@ -52,6 +45,7 @@ def gerar_grafico_materias():
     plt.grid(axis='y')
     plt.tight_layout()
     plt.show()
+
 while True:
     print("1-Adicionar novo aluno")
     print("2-Ver ranking por materia")
