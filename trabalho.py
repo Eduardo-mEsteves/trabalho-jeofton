@@ -54,6 +54,19 @@ def gerar_grafico_materias():
     plt.tight_layout()
     plt.show()
 
+def gerar_grafico_geral():
+    df = alunos_df.copy() 
+    df[['Matematica', 'Portugues', 'Historia', 'Quimica']].mean(axis=1) 
+    df = df.set_index('Aluno') 
+    df['Média Geral'].sort_values(ascending=False).plot(kind='bar', color='lightgreen', figsize=(10, 5)) 
+    plt.title('Ranking - Média Geral dos Alunos')
+    plt.xlabel('Aluno')
+    plt.ylabel('Média Geral')
+    plt.ylim(0, 10)
+    plt.grid(axis='y')
+    plt.tight_layout()
+    plt.show()
+
 while True:
     print("1-Adicionar novo aluno")
     print("2-Ver ranking por materia")
