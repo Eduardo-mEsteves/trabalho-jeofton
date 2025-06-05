@@ -1,10 +1,11 @@
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
-from os import system as sys; sys('cls')
+from os import system as sys
+
 
 #inicializando o dataframe
-alunos_df = pd.DataFrame(columns=['Aluno', 'Matematica', 'Portugues', 'Historia', 'Quimica'])
+alunos_df = pd.read_csv("dados_alunos.csv")
 
 def adicionar_aluno():
     nome = input("Nome do aluno: ")
